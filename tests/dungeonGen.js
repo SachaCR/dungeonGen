@@ -9,7 +9,7 @@ describe('dungeonGen', function(){
     it('should return a dungeon Map with 5 rooms', function(){
 
     	var dungeonMap = dungeonGen.generate(5);
-
+    	console.log(dungeonMap);
       expect(dungeonMap.length).to.be.equal(5);
       expect(dungeonMap[0].id).to.be.equal(0);
       expect(dungeonMap[1].id).to.be.equal(1);
