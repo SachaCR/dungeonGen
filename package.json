@@ -1,0 +1,31 @@
+{
+  "name": "dungeonGen",
+  "version": "1.0.0",
+  "description": "Generate a dungeon Map",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SachaCR/dungeonGen.git"
+  },
+  "keywords": [
+    "Dungeon",
+    "Generator",
+    "RPG",
+    "Map"
+  ],
+  "author": "Sacha",
+  "license": "GPLV2",
+  "bugs": {
+    "url": "https://github.com/SachaCR/dungeonGen/issues"
+  },
+  "homepage": "https://github.com/SachaCR/dungeonGen"
+}
