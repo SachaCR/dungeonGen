@@ -11,7 +11,7 @@
     "mocha": "^2.1.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha tests --recursive"
   },
   "repository": {
     "type": "git",
