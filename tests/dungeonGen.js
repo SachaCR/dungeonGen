@@ -4,9 +4,9 @@ var expect = require('chai').expect;
 
 var dungeonGen = require('../lib/dungeonGen');
 
-describe('dungeonGen', function(){
-  describe(':generate(5)', function(){
-    it('should return a dungeon Map with 5 rooms', function(){
+describe('dungeonGen', function() {
+  describe(':generate(5)', function() {
+    it('should return a dungeon Map with 5 rooms', function() {
 
     	var dungeonMap = dungeonGen.generate(5);
       expect(dungeonMap.length).to.be.equal(5);
