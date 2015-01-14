@@ -1,6 +1,6 @@
 {
   "name": "dungeonGen",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Generate a dungeon Map",
   "main": "index.js",
   "dependencies": {
@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "chai": "^1.10.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "rewire": "^2.1.3"
   },
   "scripts": {
     "test": "mocha tests --recursive"
@@ -23,7 +24,7 @@
     "RPG",
     "Map"
   ],
-  "author": "Sacha",
+  "author": "SachaCR",
   "license": "GPLV2",
   "bugs": {
     "url": "https://github.com/SachaCR/dungeonGen/issues"
