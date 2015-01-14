@@ -20,7 +20,7 @@ describe('dungeonGen', function() {
 
     it('Check if doors and rooms are consistent', function() {
       var mockDungeonGen = rewire('../lib/dungeonGen');
-      var dungeonPath = ['north', 'east', 'south', 'west'];
+      var dungeonPath = ['north', 'east', 'south', 'west', 'east'];
       var i = 0;
       mockDungeonGen.__set__('internals.randDirection', function(){
         var result = dungeonPath[i];
@@ -29,6 +29,7 @@ describe('dungeonGen', function() {
       });
 
       var dungeonMap = mockDungeonGen.generate(5);
+
       expect(dungeonMap.length).to.equal(5);
       expect(dungeonMap[0].north).to.exist;
       expect(dungeonMap[0].north.targetRoomId).to.equal(1);
@@ -45,10 +46,10 @@ describe('dungeonGen', function() {
       expect(dungeonMap[3].north).to.exist;
       expect(dungeonMap[3].north.targetRoomId).to.equal(2);
 
-      expect(dungeonMap[3].west).to.exist;
-      expect(dungeonMap[3].west.targetRoomId).to.equal(4);
-      expect(dungeonMap[4].east).to.exist;
-      expect(dungeonMap[4].east.targetRoomId).to.equal(3);
+      expect(dungeonMap[3].east).to.exist;
+      expect(dungeonMap[3].east.targetRoomId).to.equal(4);
+      expect(dungeonMap[4].west).to.exist;
+      expect(dungeonMap[4].west.targetRoomId).to.equal(3);
     });
 
   });
