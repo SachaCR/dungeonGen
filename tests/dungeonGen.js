@@ -39,6 +39,16 @@ describe('dungeonGen', function() {
       expect(dungeonMap[1].east.targetRoomId).to.equal(2);
       expect(dungeonMap[2].west).to.exist;
       expect(dungeonMap[2].west.targetRoomId).to.equal(1);
+
+      expect(dungeonMap[2].south).to.exist;
+      expect(dungeonMap[2].south.targetRoomId).to.equal(3);
+      expect(dungeonMap[3].north).to.exist;
+      expect(dungeonMap[3].north.targetRoomId).to.equal(2);
+
+      expect(dungeonMap[3].west).to.exist;
+      expect(dungeonMap[3].west.targetRoomId).to.equal(4);
+      expect(dungeonMap[4].east).to.exist;
+      expect(dungeonMap[4].east.targetRoomId).to.equal(3);
     });
 
   });
