@@ -1,9 +1,9 @@
 'use strict';
 
-var dungeonGen =  require('./lib/service/dungeonGen');
+var dungeonFactory =  require('./lib/service/dungeonFactory');
 var ennemyFactory =  require('./lib/service/ennemyFactory');
 
 module.exports = {
-  dungeonGen: dungeonGen,
+  dungeonFactory: dungeonFactory,
   ennemyFactory: ennemyFactory,
 };
