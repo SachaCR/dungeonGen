@@ -4,6 +4,7 @@ var expect = require('chai').expect;
 var rewire = require('rewire');
 
 var dungeonGen = require('../lib/dungeonGen');
+var directions = require('../helpers/directions');
 
 describe('dungeonGen', function() {
   describe(':generate(5)', function() {
@@ -20,12 +21,12 @@ describe('dungeonGen', function() {
 
     it('Check if doors and rooms are consistent', function() {
       var mockDungeonGen = rewire('../lib/dungeonGen');
-      var dungeonPath = ['north', 'east', 'south', 'west', 'east'];
+      var dungeonPath = [0, 2, 1, 3, 2];
       var i = 0;
       mockDungeonGen.__set__('internals.randDirection', function(){
         var result = dungeonPath[i];
         i++;
-        return result; 
+        return directions[result]; 
       });
 
       var dungeonMap = mockDungeonGen.generate(5);
