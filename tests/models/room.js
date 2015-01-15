@@ -7,7 +7,7 @@ var Room = require('../../lib/models/room');
 describe('Room', function() {
   describe(':constructor()', function() {
     it('should return a room with default params', function() {
-    	var room = new Room();
+      var room = new Room();
       expect(room.id).to.be.equal(0);
       expect(room.populate).to.be.equal(false);
       expect(room.north).to.be.equal(null);
