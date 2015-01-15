@@ -23,7 +23,7 @@ describe('dungeonFactory', function() {
       var mockDungeonFact = rewire('../../lib/services/dungeonFactory');
       var dungeonPath = [0, 2, 1, 3, 2];
       var i = 0;
-      mockDungeonFact.__set__('internals.randDirection', function(){
+      mockDungeonFact.__set__('commons.randElement', function(){
         var result = dungeonPath[i];
         i++;
         return directions[result]; 
