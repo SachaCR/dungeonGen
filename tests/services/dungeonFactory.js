@@ -3,14 +3,14 @@
 var expect = require('chai').expect;
 var rewire = require('rewire');
 
-var dungeonGen = require('../../lib/services/dungeonGen');
+var dungeonFactory = require('../../lib/services/dungeonFactory');
 var directions = require('../../lib/helpers/directions');
 
-describe('dungeonGen', function() {
-  describe(':generate(5)', function() {
+describe('dungeonFactory', function() {
+  describe(':generate()', function() {
 
     it('should return a dungeon Map with 5 rooms', function() {
-    	var dungeonMap = dungeonGen.generate(5);
+    	var dungeonMap = dungeonFactory.generate(5);
       expect(dungeonMap.length).to.be.equal(5);
       expect(dungeonMap[0].id).to.be.equal(0);
       expect(dungeonMap[1].id).to.be.equal(1);
@@ -20,16 +20,16 @@ describe('dungeonGen', function() {
     });
 
     it('Check if doors and rooms are consistent', function() {
-      var mockDungeonGen = rewire('../../lib/services/dungeonGen');
+      var mockDungeonFact = rewire('../../lib/services/dungeonFactory');
       var dungeonPath = [0, 2, 1, 3, 2];
       var i = 0;
-      mockDungeonGen.__set__('internals.randDirection', function(){
+      mockDungeonFact.__set__('internals.randDirection', function(){
         var result = dungeonPath[i];
         i++;
         return directions[result]; 
       });
 
-      var dungeonMap = mockDungeonGen.generate(5);
+      var dungeonMap = mockDungeonFact.generate(5);
 
       expect(dungeonMap.length).to.equal(5);
       expect(dungeonMap[0].north).to.exist;

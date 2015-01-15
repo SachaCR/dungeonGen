@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 
 var Door = require('../../lib/models/door');
 
-describe('dungeonGen', function() {
+describe('Door', function() {
   describe(':constructor()', function() {
     it('should return a door with default params', function() {
     	var door = new Door();
