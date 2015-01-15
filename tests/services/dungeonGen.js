@@ -3,8 +3,8 @@
 var expect = require('chai').expect;
 var rewire = require('rewire');
 
-var dungeonGen = require('../lib/dungeonGen');
-var directions = require('../helpers/directions');
+var dungeonGen = require('../../lib/services/dungeonGen');
+var directions = require('../../lib/helpers/directions');
 
 describe('dungeonGen', function() {
   describe(':generate(5)', function() {
@@ -20,7 +20,7 @@ describe('dungeonGen', function() {
     });
 
     it('Check if doors and rooms are consistent', function() {
-      var mockDungeonGen = rewire('../lib/dungeonGen');
+      var mockDungeonGen = rewire('../../lib/services/dungeonGen');
       var dungeonPath = [0, 2, 1, 3, 2];
       var i = 0;
       mockDungeonGen.__set__('internals.randDirection', function(){

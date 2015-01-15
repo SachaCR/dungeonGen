@@ -1,3 +1,7 @@
 'use strict';
 
-module.exports = require('./lib/dungeonGen');
+var dungeonGen =  require('./lib/service/dungeonGen');
+
+module.exports = {
+  dungeonGen: dungeonGen,
+};
