@@ -56,5 +56,32 @@ describe('dungeonFactory', function() {
       mockDungeonFact.__set__('commons.randElement', originalFunc);
     });
 
+    it('Check case of a door already exist', function() {
+      var mockDungeonFact = rewire('../../lib/services/dungeonFactory');
+      var dungeonPath = [0, 1, 2];
+      var i = 0;
+      var originalFunc = mockDungeonFact.__get__('commons.randElement');
+      mockDungeonFact.__set__('commons.randElement', function() {
+        var result = dungeonPath[i];
+        i++;
+        return directions[result];
+      });
+
+      var dungeonMap = mockDungeonFact.generate(3);
+
+      expect(dungeonMap.length).to.equal(3);
+      expect(dungeonMap[0].north).to.exist;
+      expect(dungeonMap[0].north.targetRoomId).to.equal(1);
+      expect(dungeonMap[1].south).to.exist;
+      expect(dungeonMap[1].south.targetRoomId).to.equal(0);
+
+      expect(dungeonMap[0].east).to.exist;
+      expect(dungeonMap[0].east.targetRoomId).to.equal(2);
+      expect(dungeonMap[2].west).to.exist;
+      expect(dungeonMap[2].west.targetRoomId).to.equal(0);
+
+      mockDungeonFact.__set__('commons.randElement', originalFunc);
+    });
+
   });
 });

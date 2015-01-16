@@ -8,11 +8,10 @@
   },
   "devDependencies": {
     "chai": "^1.10.0",
-    "mocha": "^2.1.0",
     "rewire": "^2.1.3"
   },
   "scripts": {
-    "test": "mocha tests --recursive",
+    "test": "istanbul cover _mocha tests/**/*.js || true",
     "pretest": "jscs lib/**/*.js tests/**/*.js ; jshint lib/**/*.js tests/**/*.js || true"
   },
   "repository": {
