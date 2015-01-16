@@ -23,6 +23,7 @@ describe('dungeonFactory', function() {
       var mockDungeonFact = rewire('../../lib/services/dungeonFactory');
       var dungeonPath = [0, 2, 1, 3, 2];
       var i = 0;
+      var originalFunc = mockDungeonFact.__get__('commons.randElement');
       mockDungeonFact.__set__('commons.randElement', function() {
         var result = dungeonPath[i];
         i++;
@@ -51,6 +52,8 @@ describe('dungeonFactory', function() {
       expect(dungeonMap[3].east.targetRoomId).to.equal(4);
       expect(dungeonMap[4].west).to.exist;
       expect(dungeonMap[4].west.targetRoomId).to.equal(3);
+
+      mockDungeonFact.__set__('commons.randElement', originalFunc);
     });
 
   });
