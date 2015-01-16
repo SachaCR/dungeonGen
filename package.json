@@ -12,7 +12,8 @@
     "rewire": "^2.1.3"
   },
   "scripts": {
-    "test": "mocha tests --recursive"
+    "test": "mocha tests --recursive",
+    "pretest": "jscs lib/**/*.js tests/**/*.js ; jshint lib/**/*.js tests/**/*.js || true"
   },
   "repository": {
     "type": "git",

@@ -6,8 +6,8 @@ var ennemyLvl0 = require('./lvl_0/ennemys');
 // var enneyLvl3 = require('./lvl3/ennemys');
 
 module.exports = [
-	ennemyLvl0
-	// enneyLvl1,
-	// enneyLvl2,
-	// enneyLvl3
+  ennemyLvl0
+  // enneyLvl1,
+  // enneyLvl2,
+  // enneyLvl3
 ];
