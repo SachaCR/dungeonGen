@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "istanbul cover _mocha tests/**/*.js || true",
+    "mocha": "mocha --recursive tests/**/*.js",
     "pretest": "jscs lib/**/*.js tests/**/*.js ; jshint lib/**/*.js tests/**/*.js || true"
   },
   "repository": {
