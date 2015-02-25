@@ -84,6 +84,32 @@ describe('dungeonFactory', function() {
 
       mockDungeonFact.__set__('commons.randElement', originalFunc);
     });
+  });
+
+  describe(':lockRoom()', function() {
+    it('Check if the door east of room 3 is locked and if the key is created and valid', function() {
+      var mockDungeonFact = rewire('../../lib/services/dungeonFactory');
+      var dungeonPath = [0, 2, 1, 3, 2];
+      var i = 0;
+      var originalFunc = mockDungeonFact.__get__('commons.randElement');
+      mockDungeonFact.__set__('commons.randElement', function() {
+        var result = dungeonPath[i];
+        i++;
+        return directions[result];
+      });
+
+      var dungeon = mockDungeonFact.generate(5);
+
+      expect(dungeon.map.length).to.equal(5);
+
+      var roomWithKeyId = mockDungeonFact.lockRoom(dungeon, 4);
+      expect(dungeon.map[3].east.locked).to.equal(true);
+      expect(dungeon.map[roomWithKeyId].objectList.length).to.equal(1);
+      expect(dungeon.map[roomWithKeyId].objectList[0].name).to.equal('Key');
+      expect(dungeon.map[roomWithKeyId].objectList[0].targetRoomId).to.equal(4);
+
+      mockDungeonFact.__set__('commons.randElement', originalFunc);
+    });
 
   });
 });
