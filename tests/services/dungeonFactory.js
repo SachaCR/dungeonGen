@@ -7,18 +7,18 @@ var dungeonFactory = require('../../lib/services/dungeonFactory');
 var directions = require('../../lib/helpers/directions');
 
 describe('dungeonFactory', function() {
-  describe(':generate()', function() {
+  describe(':generateLvl()', function() {
 
-    it('should return a dungeon Map with 5 rooms', function() {
+    it('should return a dungeonLvl with 5 rooms', function() {
 
-      var dungeon = dungeonFactory.generate(5);
+      var dungeonLvl = dungeonFactory.generateLvl(5);
 
-      expect(dungeon.map.length).to.be.equal(5);
-      expect(dungeon.map[0].id).to.be.equal(0);
-      expect(dungeon.map[1].id).to.be.equal(1);
-      expect(dungeon.map[2].id).to.be.equal(2);
-      expect(dungeon.map[3].id).to.be.equal(3);
-      expect(dungeon.map[4].id).to.be.equal(4);
+      expect(dungeonLvl.map.length).to.be.equal(5);
+      expect(dungeonLvl.map[0].id).to.be.equal(0);
+      expect(dungeonLvl.map[1].id).to.be.equal(1);
+      expect(dungeonLvl.map[2].id).to.be.equal(2);
+      expect(dungeonLvl.map[3].id).to.be.equal(3);
+      expect(dungeonLvl.map[4].id).to.be.equal(4);
     });
 
     it('Check if doors and rooms are consistent', function() {
@@ -32,28 +32,28 @@ describe('dungeonFactory', function() {
         return directions[result];
       });
 
-      var dungeon = mockDungeonFact.generate(5);
+      var dungeonLvl = mockDungeonFact.generateLvl(5);
 
-      expect(dungeon.map.length).to.equal(5);
-      expect(dungeon.map[0].north).to.exist;
-      expect(dungeon.map[0].north.targetRoomId).to.equal(1);
-      expect(dungeon.map[1].south).to.exist;
-      expect(dungeon.map[1].south.targetRoomId).to.equal(0);
+      expect(dungeonLvl.map.length).to.equal(5);
+      expect(dungeonLvl.map[0].north).to.exist;
+      expect(dungeonLvl.map[0].north.targetRoomId).to.equal(1);
+      expect(dungeonLvl.map[1].south).to.exist;
+      expect(dungeonLvl.map[1].south.targetRoomId).to.equal(0);
 
-      expect(dungeon.map[1].east).to.exist;
-      expect(dungeon.map[1].east.targetRoomId).to.equal(2);
-      expect(dungeon.map[2].west).to.exist;
-      expect(dungeon.map[2].west.targetRoomId).to.equal(1);
+      expect(dungeonLvl.map[1].east).to.exist;
+      expect(dungeonLvl.map[1].east.targetRoomId).to.equal(2);
+      expect(dungeonLvl.map[2].west).to.exist;
+      expect(dungeonLvl.map[2].west.targetRoomId).to.equal(1);
 
-      expect(dungeon.map[2].south).to.exist;
-      expect(dungeon.map[2].south.targetRoomId).to.equal(3);
-      expect(dungeon.map[3].north).to.exist;
-      expect(dungeon.map[3].north.targetRoomId).to.equal(2);
+      expect(dungeonLvl.map[2].south).to.exist;
+      expect(dungeonLvl.map[2].south.targetRoomId).to.equal(3);
+      expect(dungeonLvl.map[3].north).to.exist;
+      expect(dungeonLvl.map[3].north.targetRoomId).to.equal(2);
 
-      expect(dungeon.map[3].east).to.exist;
-      expect(dungeon.map[3].east.targetRoomId).to.equal(4);
-      expect(dungeon.map[4].west).to.exist;
-      expect(dungeon.map[4].west.targetRoomId).to.equal(3);
+      expect(dungeonLvl.map[3].east).to.exist;
+      expect(dungeonLvl.map[3].east.targetRoomId).to.equal(4);
+      expect(dungeonLvl.map[4].west).to.exist;
+      expect(dungeonLvl.map[4].west.targetRoomId).to.equal(3);
 
       mockDungeonFact.__set__('commons.randElement', originalFunc);
     });
@@ -69,18 +69,18 @@ describe('dungeonFactory', function() {
         return directions[result];
       });
 
-      var dungeon = mockDungeonFact.generate(3);
+      var dungeonLvl = mockDungeonFact.generateLvl(3);
 
-      expect(dungeon.map.length).to.equal(3);
-      expect(dungeon.map[0].north).to.exist;
-      expect(dungeon.map[0].north.targetRoomId).to.equal(1);
-      expect(dungeon.map[1].south).to.exist;
-      expect(dungeon.map[1].south.targetRoomId).to.equal(0);
+      expect(dungeonLvl.map.length).to.equal(3);
+      expect(dungeonLvl.map[0].north).to.exist;
+      expect(dungeonLvl.map[0].north.targetRoomId).to.equal(1);
+      expect(dungeonLvl.map[1].south).to.exist;
+      expect(dungeonLvl.map[1].south.targetRoomId).to.equal(0);
 
-      expect(dungeon.map[0].east).to.exist;
-      expect(dungeon.map[0].east.targetRoomId).to.equal(2);
-      expect(dungeon.map[2].west).to.exist;
-      expect(dungeon.map[2].west.targetRoomId).to.equal(0);
+      expect(dungeonLvl.map[0].east).to.exist;
+      expect(dungeonLvl.map[0].east.targetRoomId).to.equal(2);
+      expect(dungeonLvl.map[2].west).to.exist;
+      expect(dungeonLvl.map[2].west.targetRoomId).to.equal(0);
 
       mockDungeonFact.__set__('commons.randElement', originalFunc);
     });
@@ -98,15 +98,15 @@ describe('dungeonFactory', function() {
         return directions[result];
       });
 
-      var dungeon = mockDungeonFact.generate(5);
+      var dungeonLvl = mockDungeonFact.generateLvl(5);
 
-      expect(dungeon.map.length).to.equal(5);
+      expect(dungeonLvl.map.length).to.equal(5);
 
-      var roomWithKeyId = mockDungeonFact.lockRoom(dungeon, 4);
-      expect(dungeon.map[3].east.locked).to.equal(true);
-      expect(dungeon.map[roomWithKeyId].objectList.length).to.equal(1);
-      expect(dungeon.map[roomWithKeyId].objectList[0].name).to.equal('Key');
-      expect(dungeon.map[roomWithKeyId].objectList[0].targetRoomId).to.equal(4);
+      var roomWithKeyId = mockDungeonFact.lockRoom(dungeonLvl, 4);
+      expect(dungeonLvl.map[3].east.locked).to.equal(true);
+      expect(dungeonLvl.map[roomWithKeyId].objectList.length).to.equal(1);
+      expect(dungeonLvl.map[roomWithKeyId].objectList[0].name).to.equal('Key');
+      expect(dungeonLvl.map[roomWithKeyId].objectList[0].targetRoomId).to.equal(4);
 
       mockDungeonFact.__set__('commons.randElement', originalFunc);
     });
