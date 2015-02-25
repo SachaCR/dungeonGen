@@ -100,6 +100,35 @@ describe('dungeonFactory', function() {
 
       mockDungeonFact.__set__('commons.randElement', originalFunc);
     });
-
   });
+
+  describe(':generateDungeon()', function() {
+    it('Should generate an empty dungeon', function() {
+
+      var dungeon = dungeonFactory.generateDungeon();
+      expect(dungeon.lvlList.length).to.equal(0);
+      expect(dungeon.finished).to.equal(false);
+
+    });
+
+    it('Should generate a dungeon with 3 level of 5, 10, and 22 rooms', function() {
+
+      var dungeon = dungeonFactory.generateDungeon([5, 10, 22]);
+
+      expect(dungeon.lvlList[0].map.length).to.equal(5);
+      expect(dungeon.lvlList[0].nbRoom).to.equal(5);
+      expect(dungeon.lvlList[0].lvl).to.equal(0);
+
+      expect(dungeon.lvlList[1].map.length).to.equal(10);
+      expect(dungeon.lvlList[1].nbRoom).to.equal(10);
+      expect(dungeon.lvlList[1].lvl).to.equal(1);
+
+      expect(dungeon.lvlList[2].map.length).to.equal(22);
+      expect(dungeon.lvlList[2].nbRoom).to.equal(22);
+      expect(dungeon.lvlList[2].lvl).to.equal(2);
+      expect(dungeon.finished).to.equal(false);
+
+    });
+  });
+
 });
