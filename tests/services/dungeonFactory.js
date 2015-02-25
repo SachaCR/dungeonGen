@@ -9,6 +9,22 @@ var directions = require('../../lib/helpers/directions');
 describe('dungeonFactory', function() {
   describe(':generateLvl()', function() {
 
+    it('should return an exception nbRoom params is not an integer', function() {
+      try {
+        dungeonFactory.generateLvl('bad argument', 0);
+      } catch(e) {
+        expect(e).to.be.an.instanceof(TypeError);
+      }
+    });
+
+    it('should return an exception if lvl params is not an integer', function() {
+      try {
+        dungeonFactory.generateLvl(5, 'bad argument');
+      } catch(e) {
+        expect(e).to.be.an.instanceof(TypeError);
+      }
+    });
+
     it('should return a dungeonLvl with 5 rooms', function() {
 
       var dungeonLvl = dungeonFactory.generateLvl(5);

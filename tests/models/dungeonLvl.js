@@ -15,8 +15,9 @@ describe('DungeonLvl', function() {
     });
 
     it('should return a dungeon with override default params', function() {
-      var dungeonLvl = new DungeonLvl({ nbRoom: 2 });
+      var dungeonLvl = new DungeonLvl({ nbRoom: 2, lvl: 5 });
       expect(dungeonLvl.nbRoom).to.be.equal(2);
+      expect(dungeonLvl.lvl).to.be.equal(5);
       expect(dungeonLvl.map.length).to.be.equal(0);
     });
   });
