@@ -4,19 +4,22 @@ module.exports = [
 {
   name: 'Slime',
   hp: 10,
-  speed: 1,
+  spd: 1,
   def: 0,
-  strength: 2,
+  str: 2,
+  mag: 0,
 }, {
   name: 'Skeleton',
   hp: 15,
-  speed: 1,
+  spd: 1,
   def: 2,
-  strength: 4
+  str: 4,
+  mag: 0,
 }, {
   name: 'Gobelin',
   hp: 20,
-  speed: 1,
+  spd: 1,
   def: 4,
-  strength: 6,
+  str: 6,
+  mag: 0,
 }];
