@@ -13,9 +13,10 @@ describe('ennemyFactory', function() {
       expect(ennemy).to.exist;
       expect(ennemy.name).to.exist;
       expect(ennemy.hp).to.exist;
-      expect(ennemy.speed).to.exist;
+      expect(ennemy.spd).to.exist;
       expect(ennemy.def).to.exist;
-      expect(ennemy.strength).to.exist;
+      expect(ennemy.str).to.exist;
+      expect(ennemy.mag).to.exist;
     });
 
     it('should return a Gobelin ennemy', function() {
@@ -30,9 +31,10 @@ describe('ennemyFactory', function() {
       expect(ennemy).to.exist;
       expect(ennemy.name).to.be.equal('Gobelin');
       expect(ennemy.hp).to.be.equal(20);
-      expect(ennemy.speed).to.be.equal(1);
+      expect(ennemy.spd).to.be.equal(1);
       expect(ennemy.def).to.be.equal(4);
-      expect(ennemy.strength).to.be.equal(6);
+      expect(ennemy.str).to.be.equal(6);
+      expect(ennemy.mag).to.be.equal(0);
 
       mockEnnemyFact.__set__('commons.randElement', originalFunc);
     });
