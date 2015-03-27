@@ -103,12 +103,10 @@ describe('dungeonFactory', function() {
   });
 
   describe(':generateDungeon()', function() {
+
     it('Should generate an empty dungeon', function() {
-
-      var dungeon = dungeonFactory.generateDungeon();
-      expect(dungeon.lvlList.length).to.equal(0);
-      expect(dungeon.finished).to.equal(false);
-
+        var dungeon = dungeonFactory.generateDungeon([]);
+        expect(dungeon.lvlList.length).to.equal(0);
     });
 
     it('Should generate a dungeon with 3 level of 5, 10, and 22 rooms', function() {
@@ -129,6 +127,30 @@ describe('dungeonFactory', function() {
       expect(dungeon.finished).to.equal(false);
 
     });
-  });
 
+    it('Should throw an error if no params', function() {
+      try {
+        dungeonFactory.generateDungeon();
+      } catch (err) {
+        expect(err.message).to.equal('Dungeon need an array of room number by level');
+      }
+    });
+
+    it('Should throw an error if params is not an array', function() {
+      try {
+        dungeonFactory.generateDungeon('zerzeze');
+      } catch (err) {
+        expect(err.message).to.equal('lvlNbRoomList must be an array of integer');
+      }
+    });
+
+    it('Should throw an error if items are not integers', function() {
+      try {
+        dungeonFactory.generateDungeon(['a', 'b']);
+      } catch (err) {
+        expect(err.message).to.equal('nbRoom must be Integer');
+      }
+    });
+
+  });
 });
