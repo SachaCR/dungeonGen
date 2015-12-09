@@ -1,6 +1,9 @@
 {
   "name": "dungeonGen",
   "version": "0.0.1",
+  "engines": {
+    "node": "4.x.x"
+  },
   "description": "Generate a dungeon Map",
   "main": "index.js",
   "dependencies": {
@@ -8,16 +11,15 @@
     "validator": "^4.4.0"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "istanbul": "^0.4.1",
+    "jscs": "^2.7.0",
     "jshint": "^2.8.0",
-    "mocha": "^2.2.1",
-    "rewire": "^2.1.3"
+    "tap": "^2.3.1"
   },
   "scripts": {
-    "test": "istanbul cover _mocha tests/**/*.js || true",
-    "mocha": "mocha --recursive tests/**/*.js",
-    "pretest": "jscs lib/**/*.js tests/**/*.js ; jshint lib/**/*.js tests/**/*.js || true"
+    "test": "tap --cov test/**/*.js || true",
+    "lint": "jscs lib/**/*.js test/**/*.js ; jshint lib/**/*.js test/**/*.js || true",
+    "oldtest": "istanbul cover _mocha tests/**/*.js || true",
+    "oldmocha": "mocha --recursive tests/**/*.js"
   },
   "repository": {
     "type": "git",

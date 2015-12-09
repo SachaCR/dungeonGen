@@ -62,18 +62,12 @@
     "validthis"     : false,     // true: Tolerate using this in a non-constructor function
 
     // Environments
-    "mocha"         : true,     // Mocha
     "node"          : true,     // Node.js
 
     // Legacy
     "nomen"         : false,    // true: Prohibit dangling `_` in variables
     "onevar"        : false,    // true: Allow only one `var` statement per function
     "passfail"      : false,    // true: Stop on first error
-    "white"         : false,    // true: Check against strict whitespace and indentation rules
-
-    // Custom Globals
-    "predef"        : [
-      "context"
-    ]
+    "white"         : false   // true: Check against strict whitespace and indentation rules
 }
 
