@@ -7,20 +7,16 @@
   "description": "Generate a dungeon Map",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^3.10.1",
-    "validator": "^4.4.0"
+    "lodash": "^3.10.1"
   },
   "devDependencies": {
     "jscs": "^2.7.0",
     "jshint": "^2.8.0",
-    "tap": "^2.3.1",
     "tape": "^4.2.2"
   },
   "scripts": {
     "test": "tap -R dot --cov test/**/*.js",
-    "lint": "jscs lib/**/*.js test/**/*.js ; jshint lib/**/*.js test/**/*.js || true",
-    "oldtest": "istanbul cover _mocha tests/**/*.js || true",
-    "oldmocha": "mocha --recursive tests/**/*.js"
+    "lint": "jscs lib/**/*.js test/**/*.js ; jshint lib/**/*.js test/**/*.js || true"
   },
   "repository": {
     "type": "git",

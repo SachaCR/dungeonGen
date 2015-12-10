@@ -5,8 +5,8 @@ let test = require('tape');
 let dungeonFactory = require('../../../lib/factories/dungeonFactory');
 
 test('dungeonFactory.create(3, 5) : should create a dungeon with 3 level with 5 rooms each', function (t) {
-  t.plan(4);
   let dungeon = dungeonFactory.create(3, 5);
+  t.plan(4);
   t.equal(dungeon.levels.length, 3, '3 levels are created');
   t.equal(dungeon.levels[0].rooms.length, 5, '5 rooms are created');
   t.equal(dungeon.levels[1].rooms.length, 5, '5 rooms are created');

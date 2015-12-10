@@ -5,7 +5,6 @@ let test = require('tape');
 let levelFactory = require('../../../lib/factories/levelFactory');
 
 test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', function (t) {
-
   function mockRandElement() { // We are mocking the random direction of the rooms.
     let index = 0;
     let directionsIndexes = [0, 2, 0, 3]; // Directions will be chosen in this order instead of randomly.
@@ -16,28 +15,21 @@ test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', function 
     };
   }
 
-  t.plan(9);
-
   let level = levelFactory.create(1, 5, mockRandElement());
+  t.plan(9);
   t.equal(level.rooms.length, 5, '5 rooms are created');
-
   t.ok(level.rooms[0].north, 'first room has a door to the north');
-
   t.ok(level.rooms[1].east, 'second room has a door to the east');
   t.ok(level.rooms[1].south, 'second room has a door to the south');
-
   t.ok(level.rooms[2].north, 'third room has a door to the north');
   t.ok(level.rooms[2].west, 'third room has a door to the west');
-
   t.ok(level.rooms[3].west, 'fourth room has a door to the west');
   t.ok(level.rooms[3].south, 'fourth room has a door to the south');
-
   t.ok(level.rooms[4].east, 'fifth room has a door to the east');
   t.end();
 });
 
 test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repassing inside already created room', function (t) {
-
   function mockRandElement() { // We are mocking the random direction of the rooms.
     let index = 0;
     let directionsIndexes = [0, 1, 2, 0, 2]; // Directions will be chosen in this order instead of randomly.
@@ -48,22 +40,16 @@ test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repass
     };
   }
 
-  t.plan(9);
-
   let level = levelFactory.create(1, 5, mockRandElement());
+  t.plan(9);
   t.equal(level.rooms.length, 5, '5 rooms are created');
-
   t.ok(level.rooms[0].north, 'first room has a door to the north');
   t.ok(level.rooms[0].east, 'first room has a door to the east');
-
   t.ok(level.rooms[1].south, 'second room has a door to the south');
-
   t.ok(level.rooms[2].west, 'third room has a door to the west');
   t.ok(level.rooms[2].north, 'third room has a door to the north');
-
   t.ok(level.rooms[3].east, 'fourth room has a door to the east');
   t.ok(level.rooms[3].south, 'fourth room has a door to the south');
-
   t.ok(level.rooms[4].west, 'fifth room has a door to the west');
   t.end();
 });
