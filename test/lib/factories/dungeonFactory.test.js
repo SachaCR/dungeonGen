@@ -1,10 +1,10 @@
 'use strict';
 
-let tap = require('tap');
+let test = require('tape');
 
 let dungeonFactory = require('../../../lib/factories/dungeonFactory');
 
-tap.test('dungeonFactory.create(3, 5) : should create a dungeon with 3 level with 5 rooms each', function (t) {
+test('dungeonFactory.create(3, 5) : should create a dungeon with 3 level with 5 rooms each', function (t) {
   t.plan(4);
   let dungeon = dungeonFactory.create(3, 5);
   t.equal(dungeon.levels.length, 3, '3 levels are created');
@@ -14,7 +14,7 @@ tap.test('dungeonFactory.create(3, 5) : should create a dungeon with 3 level wit
   t.end();
 });
 
-tap.test('dungeonFactory.create(0, 0) : should return an error 0 is not valid', function (t) {
+test('dungeonFactory.create(0, 0) : should return an error 0 is not valid', function (t) {
   t.plan(1);
   t.throws(function () {
     dungeonFactory.create(0, 0, function(){});
@@ -22,7 +22,7 @@ tap.test('dungeonFactory.create(0, 0) : should return an error 0 is not valid', 
   t.end();
 });
 
-tap.test('dungeonFactory.create("A", 0) : should return an error "A" is not valid', function (t) {
+test('dungeonFactory.create("A", 0) : should return an error "A" is not valid', function (t) {
   t.plan(1);
   t.throws(function () {
     dungeonFactory.create('A', 0, function(){});
@@ -30,7 +30,7 @@ tap.test('dungeonFactory.create("A", 0) : should return an error "A" is not vali
   t.end();
 });
 
-tap.test('dungeonFactory.create(1, 0) : should return an error 0 is not valid', function (t) {
+test('dungeonFactory.create(1, 0) : should return an error 0 is not valid', function (t) {
   t.plan(1);
   t.throws(function () {
     dungeonFactory.create(1, 0, function(){});
@@ -38,7 +38,7 @@ tap.test('dungeonFactory.create(1, 0) : should return an error 0 is not valid', 
   t.end();
 });
 
-tap.test('dungeonFactory.create(1, "A") : should return an error "A" is not valid', function (t) {
+test('dungeonFactory.create(1, "A") : should return an error "A" is not valid', function (t) {
   t.plan(1);
   t.throws(function () {
     dungeonFactory.create(1, 'A', function(){});

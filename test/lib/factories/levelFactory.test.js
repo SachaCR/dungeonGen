@@ -1,10 +1,10 @@
 'use strict';
 
-let tap = require('tap');
+let test = require('tape');
 
 let levelFactory = require('../../../lib/factories/levelFactory');
 
-tap.test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', function (t) {
+test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', function (t) {
 
   function mockRandElement() { // We are mocking the random direction of the rooms.
     let index = 0;
@@ -36,7 +36,7 @@ tap.test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', funct
   t.end();
 });
 
-tap.test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repassing inside already created room', function (t) {
+test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repassing inside already created room', function (t) {
 
   function mockRandElement() { // We are mocking the random direction of the rooms.
     let index = 0;
@@ -68,7 +68,7 @@ tap.test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with re
   t.end();
 });
 
-tap.test('levelfactory.create(-1, 5) : should return an error cause 0 is not a valid argument', function (t) {
+test('levelfactory.create(-1, 5) : should return an error cause 0 is not a valid argument', function (t) {
   t.plan(1);
   t.throws(function () {
     levelFactory.create(-1, 5, function(){});
@@ -76,7 +76,7 @@ tap.test('levelfactory.create(-1, 5) : should return an error cause 0 is not a v
   t.end();
 });
 
-tap.test('levelfactory.create("a", 5) : should return an error cause "a" is not a valid argument', function (t) {
+test('levelfactory.create("a", 5) : should return an error cause "a" is not a valid argument', function (t) {
   t.plan(1);
   t.throws(function () {
     levelFactory.create('a', 5, function(){});
@@ -84,7 +84,7 @@ tap.test('levelfactory.create("a", 5) : should return an error cause "a" is not 
   t.end();
 });
 
-tap.test('levelfactory.create(1, 0) : should return an error cause 0 is not a valid argument', function (t) {
+test('levelfactory.create(1, 0) : should return an error cause 0 is not a valid argument', function (t) {
   t.plan(1);
   t.throws(function () {
     levelFactory.create(1, 0, function(){});
@@ -92,7 +92,7 @@ tap.test('levelfactory.create(1, 0) : should return an error cause 0 is not a va
   t.end();
 });
 
-tap.test('levelfactory.create(1, "a") : should return an error cause "a" is not a valid argument', function (t) {
+test('levelfactory.create(1, "a") : should return an error cause "a" is not a valid argument', function (t) {
   t.plan(1);
   t.throws(function () {
     levelFactory.create(1, 'a', function(){});
