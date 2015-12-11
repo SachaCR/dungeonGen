@@ -12,7 +12,7 @@ let dungeonFactory = require('../../../lib/factories/dungeonFactory');
 let actionFactory = require('../../../lib/factories/actionFactory');
 let mover = require('../../../lib/behaviors/mover');
 
-test('Behavior : move', function (t) {
+test('Behavior : move', function(t) {
   let dungeon = dungeonFactory.create(1, 5, commons);
   let action = actionFactory.create('player', 'move', 'north', 'player', 5);
   let moverObject = mover();
@@ -22,7 +22,7 @@ test('Behavior : move', function (t) {
   t.end();
 });
 
-test('Behavior : move should return an error because there is no door to south', function (t) {
+test('Behavior : move should return an error because there is no door to south', function(t) {
   let dungeon = dungeonFactory.create(1, 5, commons);
   let action = actionFactory.create('player', 'move', 'south', 'player', 5);
   let moverObject = mover();
@@ -32,7 +32,7 @@ test('Behavior : move should return an error because there is no door to south',
   t.end();
 });
 
-test('Behavior : move should return an error because the door is locked', function (t) {
+test('Behavior : move should return an error because the door is locked', function(t) {
   let dungeon = dungeonFactory.create(1, 5, commons);
   dungeon.currentRoom.north.locked = true;
   let action = actionFactory.create('player', 'move', 'north', 'player', 5);

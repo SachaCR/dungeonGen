@@ -4,11 +4,11 @@ let test = require('tape');
 
 let levelFactory = require('../../../lib/factories/levelFactory');
 
-test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', function (t) {
+test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', function(t) {
   function mockRandElement() { // We are mocking the random direction of the rooms.
     let index = 0;
     let directionsIndexes = [0, 2, 0, 3]; // Directions will be chosen in this order instead of randomly.
-    return function (directions) {
+    return function(directions) {
       let direction = directions[directionsIndexes[index]];
       index++;
       return direction;
@@ -29,7 +29,7 @@ test('levelfactory.create(1, 5) : should create 1 level with 5 rooms', function 
   t.end();
 });
 
-test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repassing inside already created room whit door', function (t) {
+test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repassing inside already created room whit door', function(t) {
   function mockRandElement() { // We are mocking the random direction of the rooms.
     let index = 0;
     let directionsIndexes = [0, 1, 2, 0, 2]; // Directions will be chosen in this order instead of randomly.
@@ -54,11 +54,11 @@ test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repass
   t.end();
 });
 
-test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repassing inside already created room whitout door', function (t) {
+test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repassing inside already created room whitout door', function(t) {
   function mockRandElement() { // We are mocking the random direction of the rooms.
     let index = 0;
     let directionsIndexes = [0, 2, 1, 3, 1]; // Directions will be chosen in this order instead of randomly.
-    return function (directions) {
+    return function(directions) {
       let direction = directions[directionsIndexes[index]];
       index++;
       return direction;
@@ -76,34 +76,34 @@ test('levelfactory.create(1, 5) : should create 1 level with 5 rooms with repass
   t.end();
 });
 
-test('levelfactory.create(-1, 5) : should return an error cause 0 is not a valid argument', function (t) {
+test('levelfactory.create(-1, 5) : should return an error cause 0 is not a valid argument', function(t) {
   t.plan(1);
-  t.throws(function () {
-    levelFactory.create(-1, 5, function(){});
+  t.throws(function() {
+    levelFactory.create(-1, 5, function() {});
   }, { message: 'difficulty must be Integer and >= 0' });
   t.end();
 });
 
-test('levelfactory.create("a", 5) : should return an error cause "a" is not a valid argument', function (t) {
+test('levelfactory.create("a", 5) : should return an error cause "a" is not a valid argument', function(t) {
   t.plan(1);
-  t.throws(function () {
-    levelFactory.create('a', 5, function(){});
+  t.throws(function() {
+    levelFactory.create('a', 5, function() {});
   }, { message: 'difficulty must be Integer and >= 0' });
   t.end();
 });
 
-test('levelfactory.create(1, 0) : should return an error cause 0 is not a valid argument', function (t) {
+test('levelfactory.create(1, 0) : should return an error cause 0 is not a valid argument', function(t) {
   t.plan(1);
-  t.throws(function () {
-    levelFactory.create(1, 0, function(){});
+  t.throws(function() {
+    levelFactory.create(1, 0, function() {});
   }, { message: 'nbRoom must be Integer and > 0' });
   t.end();
 });
 
-test('levelfactory.create(1, "a") : should return an error cause "a" is not a valid argument', function (t) {
+test('levelfactory.create(1, "a") : should return an error cause "a" is not a valid argument', function(t) {
   t.plan(1);
-  t.throws(function () {
-    levelFactory.create(1, 'a', function(){});
+  t.throws(function() {
+    levelFactory.create(1, 'a', function() {});
   }, { message: 'nbRoom must be Integer and > 0' });
   t.end();
 });

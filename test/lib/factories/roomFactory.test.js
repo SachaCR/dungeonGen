@@ -4,7 +4,7 @@ let test = require('tape');
 
 let roomFactory = require('../../../lib/factories/roomFactory');
 
-test('roomFactory.create() : should create 1 room with default values', function (t) {
+test('roomFactory.create() : should create 1 room with default values', function(t) {
   let room = roomFactory.create();
   t.plan(11);
   t.equal(room.id, 0, 'Default room id is 0');
@@ -21,7 +21,7 @@ test('roomFactory.create() : should create 1 room with default values', function
   t.end();
 });
 
-test('roomFactory.create({ id: 10, x: 5, y: 6 }) : should override default values', function (t) {
+test('roomFactory.create({ id: 10, x: 5, y: 6 }) : should override default values', function(t) {
   let room = roomFactory.create({ id: 10, x: 5, y: 6 });
   t.plan(3);
   t.equal(room.id, 10, 'Default room id is 10');
